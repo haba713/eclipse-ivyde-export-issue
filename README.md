@@ -13,15 +13,18 @@ IvyDE managed libraries are not exported to runnable JAR file.
 
 ## Steps for reproducing the issue
 
-1. Clone `git@github.com:haba713/eclipse-ivyde-export-issue.git`.
-2. Import the cloned project into Eclipse workspace.
-3. Right-click the class `src/com.example/Main.java` in the project tree and
+1. Clone [the project](https://github.com/haba713/eclipse-ivyde-export-issue):
+    ```
+    git clone git@github.com:haba713/eclipse-ivyde-export-issue.git
+    ```
+ 3. Import the cloned project into Eclipse workspace.
+ 4. Right-click the class `src/com.example/Main.java` in the project tree and
    choose Run as → Java Application. See the output: `{"key":"value"}`.
-4. Right-click the project and choose Export → Java → Runnable JAR file.
-5. Choose the launch configuration for the class `com.example.Main` and
+ 5. Right-click the project and choose Export → Java → Runnable JAR file.
+ 6. Choose the launch configuration for the class `com.example.Main` and
    Library handling: [x] Extract required libraries into generated JAR. Click
    Finish.
-6. Try to run the generated JAR file:
+ 7. Try to run the generated JAR file:
     ```
     $ java -jar eclipse-ivyde-export-issue.jar
     Exception in thread "main" java.lang.NoClassDefFoundError: org/json/JSONObject
@@ -34,4 +37,4 @@ IvyDE managed libraries are not exported to runnable JAR file.
     ```
 
 The class `org.json.JSONObject` and other JSON classes are not included in the
-JAR file even though the library is an Ivy dependency in [ivy.xml](ivy.xml). 
+JAR file even though the library is in the [Ivy dependencies](ivy.xml).
