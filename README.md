@@ -44,4 +44,6 @@ JAR file even though the library is in the [Ivy dependencies](ivy.xml).
 Change Java Build Path → Libraries → JRE System Library to 1.8. After that
 IvyDE managed libraries are included in the generated JAR file.
 
+The chosen Launch configuration must have JDK 1.8 as a runtime environment.
+
 See [this commit](https://github.com/haba713/eclipse-ivyde-export-issue/commit/1789bb9e5a583bb1b0baa0481c8ea6e0481ef421).
